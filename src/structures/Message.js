@@ -403,8 +403,7 @@ class Message extends Base {
             }
 
             try {
-                const downloadFn = window.Store.DownloadManager.downloadAndDecrypt || window.Store.DownloadManager.downloadAndMaybeDecrypt;
-                const decryptedMedia = downloadFn({
+                const decryptedMedia = await window.Store.DownloadManager.downloadAndDecrypt({
                     directPath: msg.directPath,
                     encFilehash: msg.encFilehash,
                     filehash: msg.filehash,
